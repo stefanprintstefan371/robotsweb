@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block header %}
+<header>	
+<h1><a href="#">ÚVODNÁ STRÁNKA</a></h1>
+{{ super() }}
+</header>
+{% endblock %}
+{% block content %}
+ <div class="container">
+    <div align="center">      
+    <h2>Vitajte na blogu <span>Robocop</span></h2>
+    </div>
+<div class="container">
+<div class="card mb-3">
+  <img src="{{ url_for('static', filename='img/pozadia/robot-belyy-shlem-belyy-fon.jpg') }}" class="card-img-top" alt="...">
+  <div class="card-body">
+  	<div align="center">
+    <h2 class="card-title">Robocop</h2>
+    <p class="card-text">Vitajte na stránke Robocop, kde nájdete všetko o robotike a najnovšie poznatky z oblasti robotiky.</p>
+    <p class="card-text"><small class="text-muted">Posledná aktualizácia 09.02.2020</small></p>
+  </div>
+</div>
+</div>
+</div>
+{% block section %}
+<section>
+  <div align="center">
+  <article style="position: relative-left; margin: 0; top: 0%; float-left: 50px; width: 50%; -ms-transform: translate(-50%, -50%);">
+<ul>
+  <div class="container">
+<div class="card border-primary mb-3" style="max-width: 80rem;">
+  <div class="card-header border-primary"><h3>Odkazy na micro počítače</h3></div>
+  <div class="card-body text-primary">
+    <a  href="{{ url_for('prispevky_page.polozky') }}" alt="Microbit">
+    <h5 class="card-title">a príslušenstvo</h5></a>
+    <p class="card-text">Pozrite sa na najnovšie vychytávky v oblasti micro PC.</p>
+  </div>
+</div>
+ <div class="card border-primary mb-3" style="max-width: 80rem;">
+  <div class="card-header border-primary"><h3>Správy o robotike</h3></div>
+  <div class="card-body text-primary">
+    <a  href="{{ url_for('prispevky_page.spravy') }}" alt="News robot info">
+    <h5 class="card-title">Robot</h5></a>
+    <p class="card-text">Najnovšie články.</p>
+  </div>
+</div>
+  <div class="card border-primary mb-3" style="max-width: 80rem;">
+  <div class="card-header border-primary"><h3>Micro Pc</h3></div>
+  <div class="card-body text-primary">
+    <a  href="#" alt="Micro-Pc">
+    <h5 class="card-title">Warning card title</h5></a>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+</div>
+</ul>
+</atricle>
+</div>
+</section>
+{% endblock %}
+
+
+<hr>
+
+
+{% endblock %}
+
+
+

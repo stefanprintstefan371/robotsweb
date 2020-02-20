@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block header %}
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <h1><a href="#">PRIDAŤ</a></h1>
+        </div>
+{{ super() }}
+</div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+<div class="card mb-3">
+  <img src="{{ url_for('static', filename='img/pozadia/wallpapers.jpg') }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <div align="center">
+    <h5 class="card-title">Pridaj príspevok</h5>
+    <p class="card-text">Zdielaj svoje poznatky a podeľ sa o svoje zážitky v oblasti robotiky.</p>
+    <p class="card-text"><small class="text-muted">Posledná aktualizácia pred 3 min</small></p>
+  </div>
+</div>
+</div>
+</div>
+<div id="banner" class="container">
+<div align="center">
+<div class="sticky">      
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+        <table> 
+            <tr><td>{{ form.text.label }}:</td><td>{{ form.text }}</td></tr>
+            <tr><td>{{ form.tagy.label }}:</td><td>{{ form.tagy }}</td></tr>
+            <tr><td>{{ form.submit.label }}</td><td> {{ form.submit }}</td></tr>
+        </table>
+</form>
+</div>
+</div>
+</div>
+    <div class="text-center">
+    {% for field, errors in form.errors.items() %}
+        {% for error in errors %}
+            <span style="color: red;">Chyba pole - {{ field }} hláška - {{ error }}</span><br>
+        {% endfor %}
+    {% endfor %}
+    <hr>
+    </div>
+{% endblock %}

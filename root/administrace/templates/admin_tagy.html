@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST">
+    <table border="1">
+        <tr>
+            <td>ID tagu</td>
+            <td>Název tagu</td>
+            <td>Upravit?</td>
+            <td>Smazat?</td>
+            <td>Zobrazit příspěvky podle tagu</td>
+        </tr>
+    {% for tag in tagy %}
+        <tr>
+            <td>{{ tag.id }}</td>
+            <td>{{ tag.nazev }}</td>
+            <td><button type="submit" name="upravit" value="{{ tag.id }}">Upravit</td>
+            <td><button type="submit" name="smazat" value="{{ tag.id }}">Smazat</td>
+            <td><button type="submit" name="zobrazit" value="{{ tag.id }}">Zobrazit</td>
+        </tr>
+    {% endfor %}
+    </table>
+</form>
+{% endblock %}

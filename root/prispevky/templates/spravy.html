@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block header %}
+<header>    
+<h1><a href="#">SPRAVY</a></h1>
+{{ super() }}
+</header>
+{% endblock %}
+{% block content %}
+ 
+
+
+<hr>
+
+
+<div class="container">
+{% for prispevek in prispevky %}
+{% if prispevek.zablokovano == 0 %}
+<div class="d-inline">
+    <a href="{{ url_for('prispevky_page.detail', id_c = prispevek.id) }}"><h1>{{ prispevek.autor.username }}</h1></a>
+    {{ prispevek.text|truncate(80, end = "...") }} <br>
+    {% for tag in prispevek.tagy %}
+    <span class="badge badge-primary">{{ tag.nazev }}</span>
+    {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+</div>
+<br>
+<nav aria-label="Page navigation example">
+    <div class="container">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</div>
+</nav>
+
+{% endblock %}
+
+
+
+

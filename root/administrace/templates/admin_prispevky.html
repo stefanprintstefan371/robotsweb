@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST">
+    <table border="1">
+        <tr>
+            <td>ID příspěvku</td>
+            <td>Uživatelské jméno autora</td>
+            <td>Zablokováno</td>
+            <td>Upravit?</td>
+            <td>Zablokovat?</td>
+            <td>Smazat?</td>
+        </tr>
+    {% for p in prispevky %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.autor.username }}</td>
+            <td>{{ p.zablokovano }}</td>
+            <td><button type="submit" name="upravit" value="{{ p.id }}">Upravit</td>
+            <td><button type="submit" name="zablokovat" value="{{ p.id }}">Zablokovat</td>
+            <td><button type="submit" name="smazat" value="{{ p.id }}">Smazat</td>
+        </tr>
+    {% endfor %}
+    </table>
+</form>
+{% endblock %}

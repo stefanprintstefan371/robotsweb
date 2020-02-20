@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST">
+    <table border="1">
+        <tr>
+            <td>Uživatelské jméno</td>
+            <td>Datum registrace</td>
+            <td>Datum posledního přihlášení</td>
+            <td>Smazat?</td>
+        </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.datum_registrace }}</td>
+            <td>{{ user.datum_prihlaseni }}</td>
+            <td><button type="submit" name="smazat" value="{{ user.id }}">Smazat</td>
+        </tr>
+    {% endfor %}
+    </table>
+</form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block header %}
+<style>
+    .box{
+        border-radius: 25%;
+        background-color: #53b6e8;
+        font-size: 25px;
+        margin-top: 10px;
+        transition: 1s;
+    }
+    .box:hover{
+        background-color: #a5cfe5;
+    }
+    .odkaz{
+        width: 20%;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a:hover{
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<h1>Homepage</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <a class="odkaz" href="{{ url_for('prispevky_page.uvod') }}"><div class="box col text-center">Úvod</div></a>
+    <a class="odkaz" href="{{ url_for('galerie_page.galerie') }}"><div class="box col text-center">Galerie</div></a>
+    <a class="odkaz" href="{{ url_for('prispevky_page.pridat') }}"><div class="box col text-center">Přídat příspěvek</div></a>
+    <a class="odkaz" href="{{ url_for('uzivatele_page.login') }}"><div class="box col text-center">Login</div></a>
+    <a class="odkaz" href="{{ url_for('uzivatele_page.registrace') }}"><div class="box col text-center">Registrace</div></a>
+</div>
+{% endblock %}

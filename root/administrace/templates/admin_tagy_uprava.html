@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+    <form method="POST" class="row justify-content-center">
+        {{ form.hidden_tag() }}
+        <table width="100%">
+            <tr><td>{{ form.nazev.label }}:</td><td>{{ form.nazev }}</td></tr>
+            <tr><td>{{ form.submit.label }}</td><td> {{ form.submit }}<td></tr>
+        </table>
+    </form>
+    <div class="text-center">
+    {% for field, errors in form.errors.items() %}
+        {% for error in errors %}
+            <span style="color: red;">Chyba pole - {{ field }} hláška - {{ error }}</span><br>
+        {% endfor %}
+    {% endfor %}
+    <hr>
+    </div>
+{% endblock %}

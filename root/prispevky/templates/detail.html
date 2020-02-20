@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block header %}
+<div id="header-wrapper">
+    <div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">DETAIL</a></h1>
+		</div>
+{{ super() }}
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="title">
+	<div class="container">
+	<div align="center">
+<h1>{{ prispevek.autor.username }}</h1>
+{{ prispevek.text }}
+<hr>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.delete }}
+   <a href= "{{ url_for('prispevky_page.uvod') }}">Úvod</a>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}
